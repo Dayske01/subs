@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load rest_framework %}
+
+{% block body %}
+  <div class="container">
+    <div class="header-group-info">
+      <div class="block-group-photo">
+        <img class="group-photo" src="/static/img/group_photo.png" alt="Фото группы">
+      </div>
+
+      <div class="block-group-info">
+        <div class="group-name">
+          {{ group.name }}
+        </div>
+
+        <div class="group-description">
+          {{ group.description }}
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <div class="tab">
+        <input class="tab-switcher" type="radio" id="tab1" name="tab-subs" checked>
+
+        <label for="tab1" class="tab-title">
+          Members
+        </label>
+
+        <section class="tab-content">
+          {% for member in members %}
+            <div class="block-person-info">
+              <div class="block-person-photo">
+                <img class="person-photo" src="/static/img/person_photo.png" alt="Фото персоны">
+              </div>
+
+              <div class="person-info">
+                <div class="person-name">
+                  {{member.first_name}} {{member.last_name}}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </section>
+      </div>
+
+      <div class="tab">
+        <input class="tab-switcher" type="radio" id="tab2" name="tab-subs">
+
+        <label for="tab2" class="tab-title">
+          Administrators
+        </label>
+
+        <section class="tab-content">
+          {% for admin in admins %}
+            <div class="block-person-info">
+              <div class="block-person-photo">
+                <img class="person-photo" src="/static/img/person_photo.png" alt="Фото персоны">
+              </div>
+
+              <div class="person-info">
+                <div class="person-name">
+                  {{admin.first_name}} {{admin.last_name}}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </section>
+      </div>
+
+      <div class="plus" onclick="addSub()">
+        +
+      </div>
+    </div>
+  </div>
+
+  <div id="add-sub">
+    <form action="/your-name/" method = "POST" class="form-container">
+      {% csrf_token %}
+      <div class="action-add-sub">
+        Add participant
+      </div>
+
+      <div>
+        Person
+      </div>
+
+      <select class = "add-person" required>
+        <option class = ""></option>
+          {% for person in persons_to_add %}
+            <option class = "">
+              {{person.first_name}} {{person.last_name}}
+            </option>
+          {% endfor %}
+      </select>
+
+      <div>Administrator rights</div>
+      <input type="checkbox" name="admin" required>
+
+      <div class="btn cancel" onclick="closeAddSub()">
+        Закрыть
+      </div>
+
+      <input type = "submit" class = "Submit" value = "Добавить" required>
+      <input type = "hidden" name = "group" value = "{{group.group}}">
+    </form>
+  </div>
+
+<script src="/static/js/subs.js"></script>
+
+{% endblock %}

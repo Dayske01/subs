@@ -1,2 +1,1 @@
-# subs
- Group members
+Group subscriptions
