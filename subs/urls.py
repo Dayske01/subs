@@ -1,10 +1,13 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 from subs import views
 
 
 app_name = "subs"
 urlpatterns = [
     path('groups/<uuid:group_id>/', views.subs),
-    # path('persons/', views.PersonsViewSet.as_view()),
-    # path('persons/<uuid:person_id>/', views.PersonsViewSet.as_view())
 ]
+
+router = DefaultRouter()
+router.register(r'api/persons', views.PersonsViewSet, basename='user')
+urlpatterns += router.urls

@@ -2,11 +2,13 @@ body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 20px;
 }
+
 .container {
   width: 800px;
   padding-top: 40px;
   margin: auto;
 }
+
 .header-group-info {
   width: 100%;
   height: 200px;
@@ -14,31 +16,39 @@ body {
   padding-bottom: 40px;
   border-bottom: 1px solid #ccc;
 }
+
 .block-group-photo {
 	position: relative;
 	float: left;
 }
+
 .group-photo {
   width: 230px;
   height: 200px;
 }
+
 .block-group-info {
 	position: relative;
 	float: left;
 }
+
 .group-name {
   margin: 10px 0 0 20px;
   font-size: 30px;
 }
+
 .group-description {
   margin: 10px 0 0 20px;
 }
+
 .tabs {
   position: relative;
 }
+
 .tab {
   display: inline-block;
 }
+
 .plus {
     margin-left: 5px;
     padding: 1px 6px 1px 6px;
@@ -46,49 +56,61 @@ body {
     border: 1px solid black;
     border-radius: 400px;
 }
+
 .tab-title {
 
 }
+
 .tab-switcher {
   display: none;
 }
+
 .tab-title {
   background: #fff;
   padding: 10px;
 }
+
 .tab-content {
   position: absolute;
   left: 0;
   width: 100%;
   display: none;
 }
+
 .tab :checked + .tab-title {
   border-bottom: 1px solid black;
 }
+
 .tab :checked ~ .tab-content {
   display: block;
 }
+
 .block-person-info {
   display: inline-block;
   position: relative;
   width: 380px;
   margin: 40px 0 0 0;
 }
+
 .block-person-photo {
 	position: relative;
 	float: left;
 }
+
 .person-photo {
   width: 150px;
   height: 150px;
 }
+
 .person-info {
 	position: relative;
 	float: left;
 }
+
 .person-name {
   margin: 10px;
 }
+
 .open-button {
   background-color: #2196F3;
   color: white;
